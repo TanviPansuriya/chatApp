@@ -59,17 +59,6 @@ exports.getMessages = async (req, res) => {
     }
 };
 
-
-exports.getMessages = async (req, res) => {
-    try {
-        const messages = await new Message.save(req.body);
-        res.status(201).json({ Message: messages });
-
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-}
-
 exports.sendMessage = async (req, res) => {
     try {
         const { senderId, receiverId, message } = req.body;
